@@ -1,0 +1,120 @@
+@import "tailwindcss";
+
+:root {
+  font-family: 'Outfit', 'Noto Sans TC', system-ui, -apple-system, sans-serif;
+  background-color: #090d16;
+  color: #f1f5f9;
+  scroll-behavior: smooth;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(99, 102, 241, 0.12) 0%, transparent 50%),
+    radial-gradient(circle at 0% 100%, rgba(139, 92, 246, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 100% 100%, rgba(59, 130, 246, 0.08) 0%, transparent 40%),
+    linear-gradient(180deg, #090d16 0%, #05070b 100%);
+  background-attachment: fixed;
+  overflow-x: hidden;
+}
+
+/* Premium Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #090d16;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #334155;
+}
+
+/* Glassmorphic Panels */
+.glass-panel {
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.glass-card {
+  background: rgba(30, 41, 59, 0.4);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (hover: hover) {
+  .glass-card:hover {
+    border-color: rgba(99, 102, 241, 0.3);
+    background: rgba(30, 41, 59, 0.55);
+    box-shadow: 0 8px 24px -8px rgba(0, 0, 0, 0.5), 0 0 12px rgba(99, 102, 241, 0.08);
+  }
+}
+
+/* Active states (especially for mobile taps) */
+.glass-card:active {
+  transform: scale(0.985);
+  background: rgba(30, 41, 59, 0.6);
+}
+
+/* Pulsing Scoring Glow */
+@keyframes score-pulse {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(99, 102, 241, 0.2), inset 0 0 15px rgba(99, 102, 241, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(99, 102, 241, 0.35), inset 0 0 25px rgba(99, 102, 241, 0.2);
+  }
+}
+
+.score-glow-card {
+  animation: score-pulse 3s infinite ease-in-out;
+}
+
+/* MathJax Specific Formatting */
+.MathJax {
+  font-size: 1.04em !important;
+  color: #e2e8f0 !important;
+  max-width: 100% !important;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  vertical-align: middle !important;
+}
+
+/* Form controls reset for mobile */
+input[type="text"] {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+@keyframes slideUpFade {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-up {
+  animation: slideUpFade 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Active touch highlights */
+.touch-target {
+  min-height: 48px;
+  min-width: 48px;
+}
